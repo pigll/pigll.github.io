@@ -6,21 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>php mysql报错 | pigll的博客</title>
+  <title>svn 出现working copy locked | pigll的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录一下在我使用php连接数据库 ajax发送请求获取数据库的数据 报错的几种">
-<meta name="keywords" content="php,mysql">
+  <meta name="keywords" content="svn,error">
 <meta property="og:type" content="article">
-<meta property="og:title" content="php mysql报错">
-<meta property="og:url" content="http://yoursite.com/2018/01/25/php-mysql报错/index.html">
+<meta property="og:title" content="svn 出现working copy locked">
+<meta property="og:url" content="http://yoursite.com/2018/01/26/svn-出现working-copy-locked/index.html">
 <meta property="og:site_name" content="pigll的博客">
-<meta property="og:description" content="记录一下在我使用php连接数据库 ajax发送请求获取数据库的数据 报错的几种">
-<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fnspmburgzj30e30ck3z8.jpg">
-<meta property="og:updated_time" content="2018-01-25T04:04:46.845Z">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fnu36q0vyaj30ce096t9v.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fnu3cu9jq6j305r02nq32.jpg">
+<meta property="og:updated_time" content="2018-01-26T08:41:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="php mysql报错">
-<meta name="twitter:description" content="记录一下在我使用php连接数据库 ajax发送请求获取数据库的数据 报错的几种">
-<meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fnspmburgzj30e30ck3z8.jpg">
+<meta name="twitter:title" content="svn 出现working copy locked">
+<meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fnu36q0vyaj30ce096t9v.jpg">
   
     <link rel="alternative" href="/atom.xml" title="pigll的博客" type="application/atom+xml">
   
@@ -156,38 +154,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-php-mysql报错" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-svn-出现working-copy-locked" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      php mysql报错
+      svn 出现working copy locked
     </h1>
   
 
         
-        <a href="/2018/01/25/php-mysql报错/" class="archive-article-date">
-  	<time datetime="2018-01-25T03:05:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-25</time>
+        <a href="/2018/01/26/svn-出现working-copy-locked/" class="archive-article-date">
+  	<time datetime="2018-01-26T08:24:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="记录一下在我使用php连接数据库-ajax发送请求获取数据库的数据-报错的几种"><a href="#记录一下在我使用php连接数据库-ajax发送请求获取数据库的数据-报错的几种" class="headerlink" title="记录一下在我使用php连接数据库 ajax发送请求获取数据库的数据 报错的几种"></a>记录一下在我使用php连接数据库 ajax发送请求获取数据库的数据 报错的几种</h2><p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fnspmburgzj30e30ck3z8.jpg" width="300px" height=""></p>
-<a id="more"></a>
-<h3 id="1、Uncaught-Typeerror-Illegal-invocation"><a href="#1、Uncaught-Typeerror-Illegal-invocation" class="headerlink" title="1、Uncaught Typeerror Illegal invocation"></a>1、Uncaught Typeerror Illegal invocation</h3><p></p><p style="color:red;">Uncaught Typeerror Illegal invocation</p><br>这个原因是在用ajax向后台传值的时候把一个对象当作参数传上去了，所以才会报这个错误。检查代码中是否有未定义的参数<p></p>
-<p><hr></p>
-<h3 id="2、Uncaught-SyntaxError-Unexpected-end-of-JSON-input"><a href="#2、Uncaught-SyntaxError-Unexpected-end-of-JSON-input" class="headerlink" title="2、Uncaught SyntaxError:Unexpected end of JSON input"></a>2、Uncaught SyntaxError:Unexpected end of JSON input</h3><p></p><p style="color:red;"> Uncaught SyntaxError: Unexpected end of JSON input at JSON.parse(&lt;anonymous&gt;)</p><br>原因是：请求后台接口是，后台无响应（就是毫无反应），这情况要么是接口字母写错了，要么就是后台的问题。<p></p>
-<p><hr></p>
-<h3 id="3、Unexpected-token-in-JSON-at-position"><a href="#3、Unexpected-token-in-JSON-at-position" class="headerlink" title="3、Unexpected token in JSON at position"></a>3、Unexpected token in JSON at position</h3><p></p><p style="color:red;"> Unexpected token in JSON at position</p><br>json解析异常，所以请大家直接去关注自己json的返回数据注意检查其返回内容和内容的格式是否正确，我遇见过的错误是因为json注释滴问题(不小心在json数据第一行写了个备注😄)。<p></p>
-<p><hr></p>
-<blockquote>
-<p>&copy; <strong><em>版权声明：本文为博主原创文章，未经博主允许不得转载</em></strong></p>
-</blockquote>
+        <p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fnu36q0vyaj30ce096t9v.jpg" alt=""><br><a id="more"></a></p>
+<h2 style="color:red;font-size:30px;">解决办法:</h2>
 
+<h3 id="windows解决办法（暂未证实）"><a href="#windows解决办法（暂未证实）" class="headerlink" title="windows解决办法（暂未证实）"></a>windows解决办法（暂未证实）</h3><p>1、如果cleanup没有效果的话只好手动删除锁定文件。</p>
+<p>2、cd 到你自己的svn项目目录下，如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /Users/apple/Documents/张琼芳_demo/MedicalService</span><br></pre></td></tr></table></figure></p>
+<p>3、然后执行如下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">del lock /q/s</span><br></pre></td></tr></table></figure></p>
+<p>就把锁删掉了。</p>
+<h3 id="Mac解决办法"><a href="#Mac解决办法" class="headerlink" title="Mac解决办法"></a>Mac解决办法</h3><p>1、自己手动查找删除</p>
+<li>先启动显示隐藏文件；(可以查阅我所发布的mac显示隐藏文件)</li><br><li>进入到自己的项目所在目录，看到.svn文件夹</li>
+
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fnu3cu9jq6j305r02nq32.jpg" alt=""></p>
+<p><li>找到.svn文件夹中的lock文件删除即可</li><br>2、用工具查找删除</p>
+<p><li>Spotlight is its usual rubbish self at finding the lock files recursively. </li></p>
+<p><li>EasyFind on Mac App Store works</li></p>
+<p><li><a href="http://itunes.apple.com/gb/app/easyfind/id411673888?mt=12" target="_blank" rel="noopener">http://itunes.apple.com/gb/app/easyfind/id411673888?mt=12</a></li></p>
+<p><li>search for ‘lock’</li></p>
+<p><li>Select all / Delete</li></p>
+<p><li>通过EasyFind软件，找到对应svn下的lock文件，删除掉</li></p>
+<p><li>或者通过showallfiles  找到.svn的隐藏文件，再找到里面的lock文件，并删除即可</li></p>
+<hr>
       
 
       
@@ -231,11 +237,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">svn</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">error</a>
         		</li>
       		
 		</ul>
@@ -291,7 +297,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/25/php-mysql报错/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/26/svn-出现working-copy-locked/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -305,15 +311,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/01/25/php操作mysql/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          php操作mysql
-        
-      </div>
-    </a>
   
+    <a href="/2018/01/26/mac显示隐藏文件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mac显示隐藏文件</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
