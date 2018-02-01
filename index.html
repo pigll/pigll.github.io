@@ -193,28 +193,15 @@ var _hmt = _hmt || [];
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 style="font-weight:bold;">教程</h2>
-
-<p>首先打开目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\hexo\themes\yilia\layout\_partial\post</span><br></pre></td></tr></table></figure></p>
-<p>在目录创建文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">livere.ejs</span><br></pre></td></tr></table></figure></p>
-<p>然后用记事本打开此文件，文件内容可以复制如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 来必力City版安装代码 --&gt;</span><br><span class="line">&lt;div id=&quot;lv-container&quot; data-id=&quot;city&quot; data-uid=&quot;&lt;%=theme.livere%&gt;&quot; style=&quot;margin:30px;margin-top:20px;padding-left:6.5%;padding-right:6.5%;background-color:#ffffff;&quot;&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">   (function(d, s) &#123;</span><br><span class="line">       var j, e = d.getElementsByTagName(s)[0];</span><br><span class="line"></span><br><span class="line">       if (typeof LivereTower === &apos;function&apos;) &#123; return; &#125;</span><br><span class="line"></span><br><span class="line">       j = d.createElement(s);</span><br><span class="line">       j.src = &apos;https://cdn-city.livere.com/js/embed.dist.js&apos;;</span><br><span class="line">       j.async = true;</span><br><span class="line"></span><br><span class="line">       e.parentNode.insertBefore(j, e);</span><br><span class="line">   &#125;)(document, &apos;script&apos;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;noscript&gt;为正常使用来必力评论功能请激活JavaScript&lt;/noscript&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!-- City版安装代码已完成 --&gt;</span><br></pre></td></tr></table></figure></p>
-<p>保存并关闭此文件。打开下路目录中的文件(article.ejs)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\hexo\themes\yilia\layout\\_partial\article.ejs</span><br></pre></td></tr></table></figure></p>
-<p>Ctrl+F查找<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (!index &amp;&amp; post.comments)&#123; %&gt;</span><br></pre></td></tr></table></figure></p>
-<p>在此代码下方复制粘贴如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.livere)&#123; %&gt;</span><br><span class="line">&lt;%- partial(&apos;post/livere&apos;, &#123;</span><br><span class="line">    key: post.slug,</span><br><span class="line">    title: post.title,</span><br><span class="line">    url: config.url+url_for(post.path)</span><br><span class="line">  &#125;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
-<p>粘贴之后保存并且关闭此文件，找到下面目录中文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\hexo\themes\yilia\\_config.yml</span><br></pre></td></tr></table></figure></p>
-<p>可以在其中空白处插入下面代码(可以在来必立官网寻找uid之后引号抱起来的部分)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">livere: &quot;填写注册来必力后给你的一串编码&quot;</span><br></pre></td></tr></table></figure></p>
-<p>至此来必力的第三方评论系统就集成到你的Hexo博客中了</p>
-<hr>
+        <hr>
+        
+          <a class="article-more-a" href="/2018/02/01/hexo博客集成来必力评论教程/#more">more >></a>
+        
       
 
       
     </div>
     <div class="article-info article-info-index">
-      
-        <div class="article-pop-out tagcloud">
-          <i class="icon-tuding"></i>
-          <a class="article-tag-list-link color3">置顶</a>
-        </div>
       
       
 	<div class="article-tag tagcloud">
@@ -836,19 +823,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
