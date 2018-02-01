@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="pigll的博客">
 <meta property="og:description" content="::::图片来自-&amp;gt; @rinenchin &amp;lt;-转载请说明出处">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fo011p9bqij30ku0kudi1.jpg">
-<meta property="og:updated_time" content="2018-01-31T12:23:37.000Z">
+<meta property="og:updated_time" content="2018-02-01T03:19:22.398Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php+mysql登陆注册">
 <meta name="twitter:description" content="::::图片来自-&amp;gt; @rinenchin &amp;lt;-转载请说明出处">
@@ -176,7 +176,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fo011p9bqij30ku0kudi1.jpg" style="width:300px;margin-left:130px"></p>
+        <p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fo011p9bqij30ku0kudi1.jpg" style="width:300px;"></p>
 <p style="color:gray;font-size:16px;font-style:oblique;">::::图片来自-&gt; <a href="https://weibo.com/p/1005051739288153/home?from=page_100505&mod=TAB#place" style="font-size:18px;color:rgb(247,184,133);" target="_blank" rel="noopener">@rinenchin</a> &lt;-转载请说明出处</p><br><a id="more"></a><br><br>&gt; ### 在使用php制作电商类网站的登陆及注册时遇见的一些问题<br>注册：接收前台ajax请求的数据，并且从数据库中查询 如果有相同的数据，则返回一个特定的状态值。<br><hr><br>#### 1、此思路是一种比较笨但很直观易懂的方法：<br><br><p style="text-indent:2em">将从数据库查询得到的结果foreach遍历到一个新数组中，改变它的格式，然后使用for循环遍历新的数组，再去用新数组中的值与post得到的值做比较，其中遇见了这么一个坑，就是新数组存到的数据是关联数组，也就是以 [{username:xxxx},{username:xxxxx}]类似格式存储的，所以需要取到对应的值的时候应该使用array[i][‘username’]来取对应的值，当时也是思想僵化，忘记了使用var_dump来看一下数据的格式。  emmmm，php调错真的好繁琐。</p>
 
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reg</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">global</span> $sql;</span><br><span class="line">	$username = $_POST[<span class="string">'username'</span>];</span><br><span class="line">	$password = $_POST[<span class="string">'password'</span>];</span><br><span class="line">	$tel = $_POST[<span class="string">'tel'</span>];</span><br><span class="line">	$uname_i = <span class="number">0</span>;</span><br><span class="line">	$tel_i=<span class="number">0</span>;</span><br><span class="line">	$userres = $sql-&gt;con-&gt;query(<span class="string">'select username from user'</span>); <span class="comment">//查询user中所有用户名</span></span><br><span class="line">	<span class="keyword">if</span>($userres-&gt;num_rows&gt;<span class="number">0</span>)	&#123; <span class="comment">//如果查询到的条目大于0 说明库里有数据</span></span><br><span class="line">		$unamearr=[];</span><br><span class="line">		<span class="keyword">foreach</span>($userres <span class="keyword">as</span> $thisval)&#123;</span><br><span class="line">			array_push($unamearr,$thisval);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>($i=<span class="number">0</span>;$i&lt;count($unamearr);$i++)&#123;		</span><br><span class="line">			<span class="keyword">if</span>($username ==$unamearr[$i][<span class="string">'username'</span>])&#123;</span><br><span class="line">				$uname_i=<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>($uname_i == <span class="number">1</span>)&#123;</span><br><span class="line">			<span class="keyword">echo</span> json_encode(<span class="keyword">array</span>(<span class="string">'statu'</span>=&gt;<span class="number">0</span>,<span class="string">'message'</span>=&gt;<span class="string">'用户名相同'</span>));</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="comment">//判断电话号码</span></span><br><span class="line">			$telres = $sql-&gt;con-&gt;query(<span class="string">'select tel from user'</span>);</span><br><span class="line">			$telarr = [];</span><br><span class="line">			<span class="keyword">foreach</span>($telres <span class="keyword">as</span> $thisval)&#123;</span><br><span class="line">				array_push($telarr,$thisval);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span>($j=<span class="number">0</span>;$j&lt;count($telarr);$j++)&#123;</span><br><span class="line">				<span class="keyword">if</span>($tel == $telarr[$j][<span class="string">'tel'</span>])&#123;</span><br><span class="line">					$tel_i=<span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>($tel_i==<span class="number">1</span>)&#123;</span><br><span class="line">				<span class="keyword">echo</span> json_encode(<span class="keyword">array</span>(<span class="string">'status'</span>=&gt;<span class="number">-1</span>,<span class="string">'message'</span>=&gt;<span class="string">'手机号码相同'</span>));</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="comment">//都不相同</span></span><br><span class="line">				$res = $sql-&gt;con-&gt;query(<span class="string">"insert into user(username,password,tel) values('$username','$password','$tel')"</span>);</span><br><span class="line">				</span><br><span class="line">				<span class="keyword">if</span>($res)&#123;</span><br><span class="line">					<span class="keyword">echo</span> json_encode(<span class="keyword">array</span>(<span class="string">'status'</span>=&gt;<span class="number">1</span>,<span class="string">'message'</span>=&gt;<span class="string">'注册成功'</span>));</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					<span class="keyword">echo</span> json_encode(<span class="keyword">array</span>(<span class="string">'status'</span>=&gt;<span class="number">-3</span>,<span class="string">'message'</span>=&gt;<span class="string">'添加信息时失败'</span>));</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">echo</span> json_encode(<span class="keyword">array</span>(<span class="string">'status'</span>=&gt;<span class="number">-2</span>,<span class="string">'message'</span>=&gt;<span class="string">'数据库查询失败'</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -441,11 +441,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
+                <a href="javascript:void(0)" class="js-tag color1">macOs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -457,15 +453,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">macOs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">error</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
             
             <div class="clearfix"></div>
