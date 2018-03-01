@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>canvas绘制椭圆 | pigll的博客</title>
+  <title>Tag: javaScript | pigll的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在进行小项目途中，所遇见的绘制椭圆的问题。">
-<meta name="keywords" content="canvas,html5">
-<meta property="og:type" content="article">
-<meta property="og:title" content="canvas绘制椭圆">
-<meta property="og:url" content="http://yoursite.com/2018/01/25/canvas绘制椭圆/index.html">
+  <meta name="description" content="西安文理学院14级,前端慢慢学习中。学习路上的产物即为此博">
+<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+<meta property="og:type" content="website">
+<meta property="og:title" content="pigll的博客">
+<meta property="og:url" content="http://yoursite.com/tags/javaScript/index.html">
 <meta property="og:site_name" content="pigll的博客">
-<meta property="og:description" content="在进行小项目途中，所遇见的绘制椭圆的问题。">
-<meta property="og:updated_time" content="2018-01-25T05:58:19.000Z">
+<meta property="og:description" content="西安文理学院14级,前端慢慢学习中。学习路上的产物即为此博">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="canvas绘制椭圆">
-<meta name="twitter:description" content="在进行小项目途中，所遇见的绘制椭圆的问题。">
+<meta name="twitter:title" content="pigll的博客">
+<meta name="twitter:description" content="西安文理学院14级,前端慢慢学习中。学习路上的产物即为此博">
   
     <link rel="alternative" href="/atom.xml" title="pigll的博客" type="application/atom+xml">
   
@@ -168,204 +167,60 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-canvas绘制椭圆" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      canvas绘制椭圆
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/02/26/window-location/" class="archive-article-date">
+  	<time datetime="2018-02-26T02:24:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-26</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/02/26/window-location/">window.location</a>
     </h1>
   
 
-
-        
-        <a href="/2018/01/25/canvas绘制椭圆/" class="archive-article-date">
-  	<time datetime="2018-01-25T05:30:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-25</time>
-</a>
-        
-      </header>
-    
-<!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="在进行小项目途中，所遇见的绘制椭圆的问题。"><a href="#在进行小项目途中，所遇见的绘制椭圆的问题。" class="headerlink" title="在进行小项目途中，所遇见的绘制椭圆的问题。"></a>在进行小项目途中，所遇见的绘制椭圆的问题。</h3><a id="more"></a>
-<h2 style="color:#5654a2">参数方程法</h2>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//-----------用参数方程绘制椭圆---------------------</span></span><br><span class="line"><span class="comment">//函数的参数x,y为椭圆中心；a,b分别为椭圆横半轴、</span></span><br><span class="line"><span class="comment">//纵半轴长度，不可同时为0</span></span><br><span class="line"><span class="comment">//该方法的缺点是，当lineWidth较宽，椭圆较扁时</span></span><br><span class="line"><span class="comment">//椭圆内部长轴端较为尖锐，不平滑，效率较低</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ParamEllipse</span>(<span class="params">context, x, y, a, b</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="comment">//max是等于1除以长轴值a和b中的较大者</span></span><br><span class="line">   <span class="comment">//i每次循环增加1/max，表示度数的增加</span></span><br><span class="line">   <span class="comment">//这样可以使得每次循环所绘制的路径（弧线）接近1像素</span></span><br><span class="line">   <span class="keyword">var</span> step = (a &gt; b) ? <span class="number">1</span> / a : <span class="number">1</span> / b;</span><br><span class="line">   context.beginPath();</span><br><span class="line">   context.moveTo(x + a, y); <span class="comment">//从椭圆的左端点开始绘制</span></span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span> * <span class="built_in">Math</span>.PI; i += step)</span><br><span class="line">   &#123;</span><br><span class="line">      <span class="comment">//参数方程为x = a * cos(i), y = b * sin(i)，</span></span><br><span class="line">      <span class="comment">//参数为i，表示度数（弧度）</span></span><br><span class="line">      context.lineTo(x + a * <span class="built_in">Math</span>.cos(i), y + b * <span class="built_in">Math</span>.sin(i));</span><br><span class="line">   &#125;</span><br><span class="line">   context.closePath();</span><br><span class="line">   context.stroke();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 style="color:#5654a2">均匀压缩法</h2>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//------------均匀压缩法绘制椭圆--------------------</span></span><br><span class="line"><span class="comment">//其方法是用arc方法绘制圆，结合scale进行</span></span><br><span class="line"><span class="comment">//横轴或纵轴方向缩放（均匀压缩）</span></span><br><span class="line"><span class="comment">//这种方法绘制的椭圆的边离长轴端越近越粗，长轴端点的线宽是正常值</span></span><br><span class="line"><span class="comment">//边离短轴越近、椭圆越扁越细，甚至产生间断，这是scale导致的结果</span></span><br><span class="line"><span class="comment">//这种缺点某些时候是优点，比如在表现环的立体效果（行星光环）时</span></span><br><span class="line"><span class="comment">//对于参数a或b为0的情况，这种方法不适用</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">EvenCompEllipse</span>(<span class="params">context, x, y, a, b</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   context.save();</span><br><span class="line">   <span class="comment">//选择a、b中的较大者作为arc方法的半径参数</span></span><br><span class="line">   <span class="keyword">var</span> r = (a &gt; b) ? a : b; </span><br><span class="line">   <span class="keyword">var</span> ratioX = a / r; <span class="comment">//横轴缩放比率</span></span><br><span class="line">   <span class="keyword">var</span> ratioY = b / r; <span class="comment">//纵轴缩放比率</span></span><br><span class="line">   context.scale(ratioX, ratioY); <span class="comment">//进行缩放（均匀压缩）</span></span><br><span class="line">   context.beginPath();</span><br><span class="line">   <span class="comment">//从椭圆的左端点开始逆时针绘制</span></span><br><span class="line">   context.moveTo((x + a) / ratioX, y / ratioY);</span><br><span class="line">   context.arc(x / ratioX, y / ratioY, r, <span class="number">0</span>, <span class="number">2</span> * <span class="built_in">Math</span>.PI);</span><br><span class="line">   context.closePath();</span><br><span class="line">   context.stroke();</span><br><span class="line">   context.restore();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 style="color:#5654a2">三次贝塞尔曲线法一</h2>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//---------使用三次贝塞尔曲线模拟椭圆1---------------------</span></span><br><span class="line"><span class="comment">//此方法也会产生当lineWidth较宽，椭圆较扁时，</span></span><br><span class="line"><span class="comment">//长轴端较尖锐，不平滑的现象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">BezierEllipse1</span>(<span class="params">context, x, y, a, b</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="comment">//关键是bezierCurveTo中两个控制点的设置</span></span><br><span class="line">   <span class="comment">//0.5和0.6是两个关键系数（在本函数中为试验而得）</span></span><br><span class="line">   <span class="keyword">var</span> ox = <span class="number">0.5</span> * a,</span><br><span class="line">       oy = <span class="number">0.6</span> * b;</span><br><span class="line"></span><br><span class="line">   context.save();</span><br><span class="line">   context.translate(x, y);</span><br><span class="line">   context.beginPath();</span><br><span class="line">   <span class="comment">//从椭圆纵轴下端开始逆时针方向绘制</span></span><br><span class="line">   context.moveTo(<span class="number">0</span>, b); </span><br><span class="line">   context.bezierCurveTo(ox, b, a, oy, a, <span class="number">0</span>);</span><br><span class="line">   context.bezierCurveTo(a, -oy, ox, -b, <span class="number">0</span>, -b);</span><br><span class="line">   context.bezierCurveTo(-ox, -b, -a, -oy, -a, <span class="number">0</span>);</span><br><span class="line">   context.bezierCurveTo(-a, oy, -ox, b, <span class="number">0</span>, b);</span><br><span class="line">   context.closePath();</span><br><span class="line">   context.stroke();</span><br><span class="line">   context.restore();</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 style="color:#5654a2">三次贝塞尔曲线法二</h2>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//---------使用三次贝塞尔曲线模拟椭圆2---------------------</span></span><br><span class="line"><span class="comment">//此方法也会产生当lineWidth较宽，椭圆较扁时</span></span><br><span class="line"><span class="comment">//，长轴端较尖锐，不平滑的现象</span></span><br><span class="line"><span class="comment">//这种方法比前一个贝塞尔方法精确度高，但效率稍差</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">BezierEllipse2</span>(<span class="params">ctx, x, y, a, b</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">var</span> k = <span class="number">.5522848</span>,</span><br><span class="line">   ox = a * k, <span class="comment">// 水平控制点偏移量</span></span><br><span class="line">   oy = b * k; <span class="comment">// 垂直控制点偏移量</span></span><br><span class="line"></span><br><span class="line">   ctx.beginPath();</span><br><span class="line">   <span class="comment">//从椭圆的左端点开始顺时针绘制四条三次贝塞尔曲线</span></span><br><span class="line">   ctx.moveTo(x - a, y);</span><br><span class="line">   ctx.bezierCurveTo(x - a, y - oy, x - ox, y - b, x, y - b);</span><br><span class="line">   ctx.bezierCurveTo(x + ox, y - b, x + a, y - oy, x + a, y);</span><br><span class="line">   ctx.bezierCurveTo(x + a, y + oy, x + ox, y + b, x, y + b);</span><br><span class="line">   ctx.bezierCurveTo(x - ox, y + b, x - a, y + oy, x - a, y);</span><br><span class="line">   ctx.closePath();</span><br><span class="line">   ctx.stroke();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 style="color:#5654a2">总结</h2>
-
-<p>基本上所有的方法都不可能达到100%精确，因为受显示器分辨率的限制。<br>其实最好的方法应该是arc()+scale()。<br></p>
-<p>在其他绘图软件中，不像HTML5的canvas那样提供固有的arc()+scale()方法，通常用贝塞尔曲线模拟近似椭圆，无论是几条贝塞尔曲线都是近似而已。<br><br>由于arc()+scale()是浏览器已经实现的方法，理论上精度最高，所以从效率、精确度和简单易用程度上来讲，都是最佳的。<br>在用arc()+scale()绘制完椭圆后，context.stroke()和 context.restore()两个方法调用的先后顺序不同，产生的结果会很有意思的。通常应该先restore()再stroke()。 </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">canvas</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html5</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
-        <span id="busuanzi_container_page_pv" style='display:none'>
-        |阅读量(<span id="busuanzi_value_page_pv"></span>)
-        </span>
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/25/canvas绘制椭圆/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/01/26/mac显示隐藏文件/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          mac显示隐藏文件
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/01/25/php操作mysql/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">php操作mysql</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzc3Mi8xMDMyNg==" style="margin:30px;margin-top:20px;padding-left:6.5%;padding-right:6.5%;background-color:#ffffff;">
-<script type="text/javascript">
-(function(d, s) {
-var j, e = d.getElementsByTagName(s)[0];
-
-if (typeof LivereTower === 'function') { return; }
-
-j = d.createElement(s);
-j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-j.async = true;
-
-e.parentNode.insertBefore(j, e);
-})(document, 'script');
-</script>
-<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<!-- City版安装代码已完成 -->
-
+    </div></section>
   
 
-  
-  
-  
-
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -400,9 +255,9 @@ e.parentNode.insertBefore(j, e);
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
