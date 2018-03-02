@@ -8,17 +8,14 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>window.location | pigll的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="window.location.search.substr(1); search得到的是url中?开始的部分 substr() 返回一个从指定位置开始的指定长度的字符串设置为1是从?之后开始 不设置结束长度 则获取全部 substr() 第一个参数设置为数据的整个长度，第二个参数设置为想要的参数。会从后往前获取数据  ng中可以用路由来获取">
-<meta name="keywords" content="javaScript">
+  <meta name="keywords" content="javaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="window.location">
 <meta property="og:url" content="http://yoursite.com/2018/02/26/window-location/index.html">
 <meta property="og:site_name" content="pigll的博客">
-<meta property="og:description" content="window.location.search.substr(1); search得到的是url中?开始的部分 substr() 返回一个从指定位置开始的指定长度的字符串设置为1是从?之后开始 不设置结束长度 则获取全部 substr() 第一个参数设置为数据的整个长度，第二个参数设置为想要的参数。会从后往前获取数据  ng中可以用路由来获取">
-<meta property="og:updated_time" content="2018-03-01T02:35:10.161Z">
+<meta property="og:updated_time" content="2018-03-02T11:50:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="window.location">
-<meta name="twitter:description" content="window.location.search.substr(1); search得到的是url中?开始的部分 substr() 返回一个从指定位置开始的指定长度的字符串设置为1是从?之后开始 不设置结束长度 则获取全部 substr() 第一个参数设置为数据的整个长度，第二个参数设置为想要的参数。会从后往前获取数据  ng中可以用路由来获取">
   
     <link rel="alternative" href="/atom.xml" title="pigll的博客" type="application/atom+xml">
   
@@ -192,14 +189,17 @@ var _hmt = _hmt || [];
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
+        <hr>
+<a id="more"></a>
 <p>window.location.search.substr(1);</p>
 <p><br><br>search得到的是url中?开始的部分</p>
 <p><br><br>substr() 返回一个从指定位置开始的指定长度的字符串<br><br><br>设置为1是从?之后开始 不设置结束长度 则获取全部</p>
 <p>substr() 第一个参数设置为数据的整个长度，第二个参数设置为想要的参数。<br>会从后往前获取数据</p>
 <p><br></p>
 <p>ng中可以用路由来获取</p>
-
+<p><hr><br>从url中取参数</p>
+<p>jq获取的方法:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$.request = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> search = location.search.slice(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">var</span> arr = search.split(<span class="string">"&amp;"</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> ar = arr[i].split(<span class="string">"="</span>);</span><br><span class="line">        <span class="keyword">if</span> (ar[<span class="number">0</span>] == name) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">unescape</span>(ar[<span class="number">1</span>]) == <span class="string">'undefined'</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">unescape</span>(ar[<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p style="color:#cb3a56;font-size:16px;font-family: April">用mui框架制作手机端商城时根据点击的分类显示该分类的元素</p>
       
 
       
@@ -286,8 +286,8 @@ var _hmt = _hmt || [];
 <nav id="article-nav">
   
   
-    <a href="/2018/02/01/hexo博客集成来必力评论教程/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo博客集成来必力评论教程</div>
+    <a href="/2018/02/25/js快速选择排序/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js快速选择排序</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -472,6 +472,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">canvas</a>
               </li>
              
@@ -492,15 +496,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">error</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
             
             <div class="clearfix"></div>
