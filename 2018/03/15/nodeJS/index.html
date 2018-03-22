@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: svn | pigll的博客</title>
+  <title>NodeJS中post请求的接收 | pigll的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="西安文理学院14级,前端慢慢学习中。学习路上的产物即为此博">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="pigll的博客">
-<meta property="og:url" content="http://yoursite.com/tags/svn/index.html">
+  <meta name="description" content="使用http和url模块进行的post请求的接收 123456789101112131415161718192021222324252627282930313233343536373839//node.js//引入http模块 发送或者接受都需要var http = require(&apos;http&apos;);//引入url模块var url = require(&apos;url&apos;);//querystring模块">
+<meta name="keywords" content="Node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NodeJS中post请求的接收">
+<meta property="og:url" content="http://yoursite.com/2018/03/15/nodeJS/index.html">
 <meta property="og:site_name" content="pigll的博客">
-<meta property="og:description" content="西安文理学院14级,前端慢慢学习中。学习路上的产物即为此博">
+<meta property="og:description" content="使用http和url模块进行的post请求的接收 123456789101112131415161718192021222324252627282930313233343536373839//node.js//引入http模块 发送或者接受都需要var http = require(&apos;http&apos;);//引入url模块var url = require(&apos;url&apos;);//querystring模块">
+<meta property="og:updated_time" content="2018-03-22T13:19:29.095Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pigll的博客">
-<meta name="twitter:description" content="西安文理学院14级,前端慢慢学习中。学习路上的产物即为此博">
+<meta name="twitter:title" content="NodeJS中post请求的接收">
+<meta name="twitter:description" content="使用http和url模块进行的post请求的接收 123456789101112131415161718192021222324252627282930313233343536373839//node.js//引入http模块 发送或者接受都需要var http = require(&apos;http&apos;);//引入url模块var url = require(&apos;url&apos;);//querystring模块">
   
     <link rel="alternative" href="/atom.xml" title="pigll的博客" type="application/atom+xml">
   
@@ -167,64 +168,188 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-nodeJS" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/26/svn-出现working-copy-locked/" class="archive-article-date">
-  	<time datetime="2018-01-26T08:24:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/26/svn-出现working-copy-locked/">svn 出现working copy locked</a>
+    <h1 class="article-title" itemprop="name">
+      NodeJS中post请求的接收
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+
+        
+        <a href="/2018/03/15/nodeJS/" class="archive-article-date">
+  	<time datetime="2018-03-15T05:03:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-15</time>
+</a>
+        
+      </header>
+    
+<!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用http和url模块进行的post请求的接收</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//node.js</span></span><br><span class="line"><span class="comment">//引入http模块 发送或者接受都需要</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="comment">//引入url模块</span></span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//querystring模块 处理post返回数据的处理</span></span><br><span class="line"><span class="keyword">var</span> querystring = <span class="built_in">require</span>(<span class="string">'querystring'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//导入mysql模块  连接数据库必须要引入并且要在项目安装（npm install mysql)</span></span><br><span class="line"><span class="keyword">var</span> mysql = <span class="built_in">require</span>(<span class="string">'mysql'</span>);</span><br><span class="line"><span class="comment">//连接数据库</span></span><br><span class="line"><span class="keyword">var</span> con = mysql.createConnection(&#123;</span><br><span class="line">	host:<span class="string">'localhost'</span>,</span><br><span class="line">	user:<span class="string">'root'</span>,</span><br><span class="line">	password:<span class="string">''</span>,</span><br><span class="line">	database:<span class="string">'test'</span>	</span><br><span class="line">&#125;);	</span><br><span class="line"><span class="comment">//http创建服务            post请求(持续的) </span></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">request,response</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(request.url != <span class="string">'/favicon.ico'</span>)&#123;  <span class="comment">//消除浏览器默认的第二次访问</span></span><br><span class="line">	<span class="comment">//请求头    设置跨域</span></span><br><span class="line">	response.writeHead(<span class="number">200</span>,&#123;<span class="string">'Content-Type'</span>:<span class="string">"text/html;charset=utf-8"</span>,<span class="string">'Access-Control-Allow-Origin'</span>:<span class="string">'*'</span>&#125;);</span><br><span class="line">	<span class="keyword">var</span> data = <span class="string">''</span>;</span><br><span class="line">	<span class="comment">//接收数据中 断点接收数据的机制</span></span><br><span class="line">	request.on(<span class="string">'data'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;	</span><br><span class="line">		data+=value;	</span><br><span class="line">	&#125;);</span><br><span class="line">	<span class="comment">//接收数据完成</span></span><br><span class="line">	request.on(<span class="string">'end'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="comment">// response.end();</span></span><br><span class="line">        <span class="comment">//这里可以拿到完整的 data 如果需要进行操作 需要进行parse解析</span></span><br><span class="line"></span><br><span class="line">        response.write(); <span class="comment">//都可以向前台发送数据 但是一定是"字符串"格式的数据</span></span><br><span class="line">        response.end();</span><br><span class="line">	&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;).listen(<span class="number">8000</span>);<span class="comment">//设置监听端口</span></span><br></pre></td></tr></table></figure>
+<hr>
+
+<p>使用http 和url进行的get请求的接收</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Node get请求</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>); <span class="comment">//http模块</span></span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>); 	<span class="comment">//url模块</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建服务器   接受get请求</span></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">request,response</span>)</span>&#123; <span class="comment">//request请求    response 响应  </span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"server is running at localhost:3307"</span>);</span><br><span class="line">	<span class="comment">//筛选默认重复的请求</span></span><br><span class="line">	<span class="keyword">if</span>(request.url != <span class="string">'/favicon.ico'</span>)&#123;</span><br><span class="line">		<span class="comment">//请求头</span></span><br><span class="line">		response.writeHead(<span class="number">200</span>,&#123;<span class="string">'Content-Type'</span>:<span class="string">"text/html;charset=utf-8"</span>,<span class="string">'Access-Control-Allow-Origin'</span>:<span class="string">'*'</span>&#125;);</span><br><span class="line">		<span class="keyword">var</span> obj = url.parse(request.url,<span class="literal">true</span>); <span class="comment">//true把字符串变成对象</span></span><br><span class="line"></span><br><span class="line">		<span class="built_in">console</span>.log(obj.query);</span><br><span class="line">		response.write(<span class="built_in">JSON</span>.stringify(obj)); <span class="comment">//返回的数据必须是一个字符串 </span></span><br><span class="line"></span><br><span class="line">		response.end();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;).listen(<span class="number">3307</span>)<span class="comment">//监听端口号</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">svn</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">error</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Node</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+        <span id="busuanzi_container_page_pv" style='display:none'>
+        |阅读量(<span id="busuanzi_value_page_pv"></span>)
+        </span>
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/03/15/nodeJS/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/03/22/axiosPost/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          axios Post无法发送数据
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/02/26/window-location/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">window.location</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzc3Mi8xMDMyNg==" style="margin:30px;margin-top:20px;padding-left:6.5%;padding-right:6.5%;background-color:#ffffff;">
+<script type="text/javascript">
+(function(d, s) {
+var j, e = d.getElementsByTagName(s)[0];
+
+if (typeof LivereTower === 'function') { return; }
+
+j = d.createElement(s);
+j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+j.async = true;
+
+e.parentNode.insertBefore(j, e);
+})(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
   
 
-    
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -259,9 +384,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
