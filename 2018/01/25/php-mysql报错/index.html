@@ -9,13 +9,13 @@
   <title>php mysql报错 | pigll的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="记录一下在我使用php连接数据库 ajax发送请求获取数据库的数据 报错的几种">
-<meta name="keywords" content="mysql,php">
+<meta name="keywords" content="php,mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php mysql报错">
 <meta property="og:url" content="http://yoursite.com/2018/01/25/php-mysql报错/index.html">
 <meta property="og:site_name" content="pigll的博客">
 <meta property="og:description" content="记录一下在我使用php连接数据库 ajax发送请求获取数据库的数据 报错的几种">
-<meta property="og:locale" content="zh">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fnspmburgzj30e30ck3z8.jpg">
 <meta property="og:updated_time" content="2018-01-25T04:04:46.845Z">
 <meta name="twitter:card" content="summary">
@@ -29,6 +29,15 @@
     <link rel="icon" href="https://ws4.sinaimg.cn/large/006tNc79ly1fnje88hqykj30c80c8aaq.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+    {% if theme.daovoice %}
+    <script>
+    (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+    daovoice('init', {
+    app_id: "{{theme.daovoice_app_id}}"
+    });
+    daovoice('update');
+    </script>
+    {% endif %}
   <style type="text/css">
   
     #container.show {
@@ -49,6 +58,7 @@ var _hmt = _hmt || [];
 </script>
 
 
+   
 </head>
 
 <body>
@@ -219,11 +229,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
@@ -292,6 +302,7 @@ var _hmt = _hmt || [];
     </div>
   </div>
 </article>
+
 
   
 <nav id="article-nav">
@@ -491,15 +502,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,11 +518,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Node</a>
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,11 +534,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,6 +543,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">error</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
