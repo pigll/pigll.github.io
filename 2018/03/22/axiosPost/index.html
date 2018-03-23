@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>axios Post无法发送数据 | pigll的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这几天在使用Vue2 制作一个管理系统去配合新学习的对于node的使用,由于vue-resource官方表明不再进行维护，所以使用了axios进行ajax请求,在使用的过程中发现如果直接使用data对象进行传输数据的话，后台无法接收到数据,以下是我所使用的解决方法 12345678910111213141516改造封装的apiPost方法，通过URLSearchParams来组装我们的数据： ap">
+  <meta name="description" content="这几天在使用Vue2 制作一个管理系统去配合新学习的对于node的使用,由于vue-resource官方表明不再进行维护，所以使用了axios进行ajax请求,在使用的过程中发现如果直接使用data对象进行传输数据的话，后台无法接收到数据,以下是我所使用的解决方法">
 <meta name="keywords" content="Vue,axios">
 <meta property="og:type" content="article">
 <meta property="og:title" content="axios Post无法发送数据">
 <meta property="og:url" content="http://yoursite.com/2018/03/22/axiosPost/index.html">
 <meta property="og:site_name" content="pigll的博客">
-<meta property="og:description" content="这几天在使用Vue2 制作一个管理系统去配合新学习的对于node的使用,由于vue-resource官方表明不再进行维护，所以使用了axios进行ajax请求,在使用的过程中发现如果直接使用data对象进行传输数据的话，后台无法接收到数据,以下是我所使用的解决方法 12345678910111213141516改造封装的apiPost方法，通过URLSearchParams来组装我们的数据： ap">
-<meta property="og:updated_time" content="2018-03-22T12:03:13.000Z">
+<meta property="og:description" content="这几天在使用Vue2 制作一个管理系统去配合新学习的对于node的使用,由于vue-resource官方表明不再进行维护，所以使用了axios进行ajax请求,在使用的过程中发现如果直接使用data对象进行传输数据的话，后台无法接收到数据,以下是我所使用的解决方法">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-23T01:30:04.317Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="axios Post无法发送数据">
-<meta name="twitter:description" content="这几天在使用Vue2 制作一个管理系统去配合新学习的对于node的使用,由于vue-resource官方表明不再进行维护，所以使用了axios进行ajax请求,在使用的过程中发现如果直接使用data对象进行传输数据的话，后台无法接收到数据,以下是我所使用的解决方法 12345678910111213141516改造封装的apiPost方法，通过URLSearchParams来组装我们的数据： ap">
+<meta name="twitter:description" content="这几天在使用Vue2 制作一个管理系统去配合新学习的对于node的使用,由于vue-resource官方表明不再进行维护，所以使用了axios进行ajax请求,在使用的过程中发现如果直接使用data对象进行传输数据的话，后台无法接收到数据,以下是我所使用的解决方法">
   
     <link rel="alternative" href="/atom.xml" title="pigll的博客" type="application/atom+xml">
   
@@ -192,8 +193,7 @@ var _hmt = _hmt || [];
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <p><span style="">这几天在使用Vue2 制作一个管理系统去配合新学习的对于node的使用,由于vue-resource官方表明不再进行维护，所以使用了axios进行ajax请求,在使用的过程中发现如果直接使用data对象进行传输数据的话，后台无法接收到数据,以下是我所使用的解决方法</span></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">改造封装的apiPost方法，通过URLSearchParams来组装我们的数据：</span><br><span class="line"> </span><br><span class="line">apiPost(url, data) &#123;</span><br><span class="line">    <span class="comment">/* 处理参数为 key=value&amp;key=value */</span></span><br><span class="line">    <span class="keyword">let</span> params = <span class="keyword">new</span> URLSearchParams()</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> data) &#123;</span><br><span class="line">        params.append(key, data[key])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.$axios.post(url, params).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">            resolve(response.data)</span><br><span class="line">        &#125;).catch(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'f'</span>, response)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><span style="">这几天在使用Vue2 制作一个管理系统去配合新学习的对于node的使用,由于vue-resource官方表明不再进行维护，所以使用了axios进行ajax请求,在使用的过程中发现如果直接使用data对象进行传输数据的话，后台无法接收到数据,以下是我所使用的解决方法</span><br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">改造封装的apiPost方法，通过URLSearchParams来组装我们的数据：</span><br><span class="line"> </span><br><span class="line">apiPost(url, data) &#123;</span><br><span class="line">    <span class="comment">/* 处理参数为 key=value&amp;key=value */</span></span><br><span class="line">    <span class="keyword">let</span> params = <span class="keyword">new</span> URLSearchParams()</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> data) &#123;</span><br><span class="line">        params.append(key, data[key])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.$axios.post(url, params).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">            resolve(response.data)</span><br><span class="line">        &#125;).catch(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'f'</span>, response)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>使用了<a href="https://segmentfault.com/a/1190000005980048" target="_blank" rel="noopener">URLSearchParams API</a></p>
 <p>将所需要传输的数据<code>append</code>到<code>URLSearchParams</code>的实例中 从而达到数据的传输。<br>经过查阅得知 <code>URLSearchParams</code> 并不支持所有的浏览器，为了兼容,又尝试了另外一种办法.</p>
 <h3 id="使用qs库来格式化数据"><a href="#使用qs库来格式化数据" class="headerlink" title="使用qs库来格式化数据"></a>使用qs库来格式化数据</h3><p>使用这种方法需要在项目中安装<code>qs</code>库作为格式化依赖<br><br><code>npm install qs --save</code><br><br>在 <code>main.js</code> 中，引入qs苦并且改造apiPost方法<br><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> qs <span class="keyword">from</span> <span class="string">'qs'</span></span><br><span class="line"><span class="comment">/* 注入vue全局中，这样我们可以在组件内或者JS内通过使用this.$qs来使用qs库*/</span></span><br><span class="line">Vue.prototype.$qs = qs</span><br><span class="line"> </span><br><span class="line"><span class="comment">//http.js</span></span><br><span class="line">apiPost(url, data) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.$axios.post(url, <span class="keyword">this</span>.$qs.stringify(data)).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">            resolve(response.data)</span><br><span class="line">        &#125;).catch(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'f'</span>, response)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -480,6 +480,10 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
@@ -493,10 +497,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">html5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,15 +520,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">error</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
