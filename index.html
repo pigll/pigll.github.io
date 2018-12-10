@@ -172,6 +172,89 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js判断浏览器类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/10/js判断浏览器类型/">dsada</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/12/10/js判断浏览器类型/" class="archive-article-date">
+  	<time datetime="2018-12-10T03:16:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-10</time>
+</a>
+        
+      </header>
+    
+<!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="判断浏览器类型"><a href="#判断浏览器类型" class="headerlink" title="判断浏览器类型"></a>判断浏览器类型</h3><p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fy1heatnsmj30ku0w1gn4.jpg" style="width:300px;"><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">checkBrowser</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ua = navigator.userAgent.toLocaleLowerCase();</span><br><span class="line">    <span class="keyword">var</span> screenWidth=<span class="built_in">window</span>.screen.width;</span><br><span class="line">    <span class="keyword">var</span> bodyHeight=$(<span class="string">"body"</span>).height();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"屏幕宽度 "</span>+screenWidth);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"内容高度 "</span>+bodyHeight);</span><br><span class="line">    <span class="keyword">var</span> browserType = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span> (ua.match(<span class="regexp">/msie/</span>) != <span class="literal">null</span> || ua.match(<span class="regexp">/trident/</span>) != <span class="literal">null</span>) &#123;</span><br><span class="line">        browserType = <span class="string">"IE"</span>;</span><br><span class="line">        browserVersion = ua.match(<span class="regexp">/msie ([\d.]+)/</span>) != <span class="literal">null</span> ? ua.match(<span class="regexp">/msie ([\d.]+)/</span>)[<span class="number">1</span>] : ua.match(<span class="regexp">/rv:([\d.]+)/</span>)[<span class="number">1</span>];</span><br><span class="line">        <span class="comment">//针对IE浏览器在此处写入样式</span></span><br><span class="line">        <span class="comment">// CSS-Code;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ua.match(<span class="regexp">/firefox/</span>) != <span class="literal">null</span>) &#123;</span><br><span class="line">        browserType = <span class="string">"火狐"</span>;</span><br><span class="line">            <span class="comment">//针对火狐浏览器在此处写入样式</span></span><br><span class="line">        <span class="comment">// CSS-Code;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ua.match(<span class="regexp">/ubrowser/</span>) != <span class="literal">null</span>) &#123;</span><br><span class="line">        browserType = <span class="string">"UC"</span>;</span><br><span class="line">          <span class="comment">//针对UC浏览器在此处写入样式</span></span><br><span class="line">        <span class="comment">// CSS-Code;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ua.match(<span class="regexp">/opera/</span>) != <span class="literal">null</span>) &#123;</span><br><span class="line">        browserType = <span class="string">"欧朋"</span>;</span><br><span class="line">  	 <span class="comment">//针对欧朋浏览器在此处写入样式</span></span><br><span class="line">        <span class="comment">// CSS-Code;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ua.match(<span class="regexp">/bidubrowser/</span>) != <span class="literal">null</span>) &#123;</span><br><span class="line">        browserType = <span class="string">"百度"</span>;</span><br><span class="line">         <span class="comment">//针对百度浏览器在此处写入样式</span></span><br><span class="line">        <span class="comment">// CSS-Code;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ua.match(<span class="regexp">/metasr/</span>) != <span class="literal">null</span>) &#123;</span><br><span class="line">        browserType = <span class="string">"搜狗"</span>;</span><br><span class="line">         <span class="comment">//针对搜狗浏览器在此处写入样式</span></span><br><span class="line">        <span class="comment">// CSS-Code;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ua.match(<span class="regexp">/tencenttraveler/</span>) != <span class="literal">null</span> || ua.match(<span class="regexp">/qqbrowse/</span>) != <span class="literal">null</span>) &#123;</span><br><span class="line">        browserType = <span class="string">"QQ"</span>;</span><br><span class="line">         <span class="comment">//针对QQ浏览器在此处写入样式</span></span><br><span class="line">        <span class="comment">// CSS-Code;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ua.match(<span class="regexp">/maxthon/</span>) != <span class="literal">null</span>) &#123;</span><br><span class="line">        browserType = <span class="string">"遨游"</span>;</span><br><span class="line">         <span class="comment">//针对遨游浏览器在此处写入样式</span></span><br><span class="line">        <span class="comment">// CSS-Code;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ua.match(<span class="regexp">/chrome/</span>) != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> is360 = _mime(<span class="string">"type"</span>, <span class="string">"application/vnd.chromium.remoting-viewer"</span>);</span><br><span class="line">        <span class="keyword">if</span> (is360) &#123;</span><br><span class="line">            browserType = <span class="string">'360'</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            browserType = <span class="string">"谷歌"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ua.match(<span class="regexp">/safari/</span>) != <span class="literal">null</span>) &#123;</span><br><span class="line">        browserType = <span class="string">"Safari"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_mime</span>(<span class="params">option, value</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> mimeTypes = navigator.mimeTypes;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> mt <span class="keyword">in</span> mimeTypes) &#123;</span><br><span class="line">            <span class="keyword">if</span> (mimeTypes[mt][option] == value) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(browserType);</span><br><span class="line">    <span class="keyword">return</span> browserType;<span class="comment">//返回浏览器类型</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>另一种方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">unit.Browser = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> u = navigator.userAgent, app = navigator.appVersion;</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="comment">//移动终端浏览器版本信息   </span></span><br><span class="line">        trident: u.indexOf(<span class="string">'Trident'</span>) &gt; <span class="number">-1</span>, <span class="comment">//IE内核  </span></span><br><span class="line">        presto: u.indexOf(<span class="string">'Presto'</span>) &gt; <span class="number">-1</span>, <span class="comment">//opera内核 </span></span><br><span class="line">        webKit: u.indexOf(<span class="string">'AppleWebKit'</span>) &gt; <span class="number">-1</span>, <span class="comment">//苹果、谷歌内核  </span></span><br><span class="line">        gecko: u.indexOf(<span class="string">'Gecko'</span>) &gt; <span class="number">-1</span> &amp;&amp; u.indexOf(<span class="string">'KHTML'</span>) == <span class="number">-1</span>, <span class="comment">//火狐内核  </span></span><br><span class="line">        mobile: !!u.match(<span class="regexp">/AppleWebKit.*Mobile.*/</span>), <span class="comment">//是否为移动终端</span></span><br><span class="line">        ios: !!u.match(<span class="regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>), <span class="comment">//ios终端</span></span><br><span class="line">        android: u.indexOf(<span class="string">'Android'</span>) &gt; <span class="number">-1</span> || u.indexOf(<span class="string">'Linux'</span>) &gt; <span class="number">-1</span>, <span class="comment">//android终端或者uc浏览器</span></span><br><span class="line">        iPhone: u.indexOf(<span class="string">'iPhone'</span>) &gt; <span class="number">-1</span>, <span class="comment">//是否为iPhone或者QQHD浏览器</span></span><br><span class="line">        iPad: u.indexOf(<span class="string">'iPad'</span>) &gt; <span class="number">-1</span>, <span class="comment">//是否iPad</span></span><br><span class="line">        webApp: u.indexOf(<span class="string">'Safari'</span>) == <span class="number">-1</span>, <span class="comment">//是否web应该程序，没有头部与底部</span></span><br><span class="line">        wechat: u.toLowerCase().match(<span class="regexp">/MicroMessenger/i</span>) == <span class="string">'micromessenger'</span> <span class="comment">//是否微信内置浏览器</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;();</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+        <span id="busuanzi_container_page_pv" style='display:none'>
+        |阅读量(<span id="busuanzi_value_page_pv"></span>)
+        </span>
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/10/js判断浏览器类型/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-pc滚动穿透解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -605,90 +688,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-noderouter" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/22/noderouter/">Node中使用express框架通过router来接收请求</a>
-    </h1>
-  
-
-
-        
-        <a href="/2018/03/22/noderouter/" class="archive-article-date">
-  	<time datetime="2018-03-22T13:00:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
-</a>
-        
-      </header>
-    
-<!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <a id="more"></a>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>); <span class="comment">//导入express框架</span></span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> addRouter = <span class="built_in">require</span>(<span class="string">'./routes/index.js'</span>);</span><br><span class="line"><span class="keyword">var</span> selectRouter = <span class="built_in">require</span>(<span class="string">'./routes/select.js'</span>);</span><br><span class="line"><span class="keyword">var</span> updateRouter = <span class="built_in">require</span>(<span class="string">'./routes/update.js'</span>);</span><br><span class="line"></span><br><span class="line">app.use(<span class="string">'/add'</span>,addRouter);</span><br><span class="line">app.use(<span class="string">'/select'</span>,selectRouter);</span><br><span class="line">app.use(<span class="string">'/update'</span>,updateRouter);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>);<span class="comment">//端口</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">``</span><span class="string">``</span> js</span><br><span class="line"><span class="comment">//index.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> router = express.Router();</span><br><span class="line"><span class="keyword">var</span> mysql = <span class="built_in">require</span>(<span class="string">'mysql'</span>);</span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//查看所有学生</span></span><br><span class="line">router.get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">request,response</span>)</span>&#123; </span><br><span class="line">	response.header(<span class="string">'Access-Control-Allow-Origin'</span>,<span class="string">'*'</span>); <span class="comment">//设置请求头 跨域</span></span><br><span class="line">	<span class="comment">//获取传过来的参数</span></span><br><span class="line">	<span class="keyword">var</span> obj = url.parse(request.url,<span class="literal">true</span>).query;        <span class="comment">//截取参数 </span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> con = mysql.createConnection(&#123;</span><br><span class="line">		host:<span class="string">'localhost'</span>,</span><br><span class="line">		user:<span class="string">'root'</span>,</span><br><span class="line">		password:<span class="string">''</span>,</span><br><span class="line">		database:<span class="string">'student'</span> <span class="comment">//stu</span></span><br><span class="line">	&#125;);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> sql = <span class="string">'insert into stu (name,sex,age) values (?,?,?)'</span>;  <span class="comment">//写入数据的格式 con.query(sql,params,function(error,result)&#123;&#125;);</span></span><br><span class="line">	<span class="keyword">var</span> params = [obj.username,obj.sex,obj.age];</span><br><span class="line">	con.query(sql,params,<span class="function"><span class="keyword">function</span>(<span class="params">error,result</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(!error)&#123;</span><br><span class="line">			response.send(<span class="string">'&#123;"status":0,"msg":"ok"&#125;'</span>);   <span class="comment">//里面使用response.sedn()发送数据给前端 字符串格式</span></span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			response.send(<span class="string">'&#123;"status":1,"msg":"unknow"&#125;'</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">module</span>.exports = router;  <span class="comment">//导出供外部访问</span></span><br></pre></td></tr></table></figure>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-        <span id="busuanzi_container_page_pv" style='display:none'>
-        |阅读量(<span id="busuanzi_value_page_pv"></span>)
-        </span>
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/22/noderouter/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -835,7 +834,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Node</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -843,11 +846,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
+                <a href="javascript:void(0)" class="js-tag color1">macOs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">Node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -863,7 +866,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">macOs</a>
+                <a href="javascript:void(0)" class="js-tag color3">sublime</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -875,7 +878,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sublime</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -887,23 +894,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">移动端</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
             
             <div class="clearfix"></div>
